@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Digital e-Gram Panchayat</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet" />
+  <style>
+    body {
+      font-family: 'Roboto', sans-serif;
+      background: #f2f5f7;
+      margin: 0;
+      padding: 0;
+      color: #333;
+    }
+    header {
+      background-color: #004aad;
+      color: white;
+      padding: 20px;
+      text-align: center;
+      font-size: 24px;
+      font-weight: bold;
+      letter-spacing: 2px;
+    }
+    nav {
+      background-color: #022f74;
+      padding: 10px 0;
+      text-align: center;
+    }
+    nav a {
+      color: white;
+      margin: 0 20px;
+      text-decoration: none;
+      font-weight: 600;
+    }
+    nav a:hover {
+      text-decoration: underline;
+    }
+    main {
+      max-width: 900px;
+      margin: 30px auto;
+      background: white;
+      padding: 20px 30px;
+      border-radius: 10px;
+      box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+    }
+    h2 {
+      color: #004aad;
+    }
+    section {
+      margin-bottom: 30px;
+    }
+    label {
+      display: block;
+      margin-bottom: 8px;
+      font-weight: 600;
+    }
+    input, select, textarea {
+      width: 100%;
+      padding: 8px;
+      margin-bottom: 15px;
+      border-radius: 6px;
+      border: 1px solid #ccc;
+      font-size: 14px;
+    }
+    button {
+      background-color: #004aad;
+      color: white;
+      padding: 12px 20px;
+      border: none;
+      border-radius: 8px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+    button:hover {
+      background-color: #022f74;
+    }
+    .notification {
+      margin-top: 15px;
+      padding: 12px;
+      background-color: #d1e7dd;
+      color: #0f5132;
+      border-radius: 6px;
+      display: none;
+    }
+  </style>
+</head>
+<body>
+  <header>Digital e-Gram Panchayat</header>
+  <nav>
+    <a href="#">Home</a>
+    <a href="#services">Services</a>
+    <a href="#contact">Contact</a>
+  </nav>
+  <main>
+    <section id="services">
+      <h2>Services Offered</h2>
+      <ul>
+        <li>Apply for Certificates (Caste, Income, Domicile)</li>
+        <li>Complaint Registration</li>
+        <li>View Panchayat Notices</li>
+        <li>Local Event Updates</li>
+        <li>Grievance Redressal</li>
+      </ul>
+    </section>
+
+    <section id="apply">
+      <h2>Apply for Certificate</h2>
+      <form id="certificateForm">
+        <label for="name">Full Name</label>
+        <input type="text" id="name" name="name" required />
+
+        <label for="certificateType">Certificate Type</label>
+        <select id="certificateType" name="certificateType" required>
+          <option value="">--Select--</option>
+          <option value="caste">Caste Certificate</option>
+          <option value="income">Income Certificate</option>
+          <option value="domicile">Domicile Certificate</option>
+        </select>
+
+        <label for="details">Additional Details</label>
+        <textarea id="details" name="details" rows="4" placeholder="Enter any additional information..."></textarea>
+
+        <button type="submit">Submit Application</button>
+      </form>
+      <div class="notification" id="notification"></div>
+    </section>
+
+    <section id="contact">
+      <h2>Contact Us</h2>
+      <p>Email: support@egrampanchayat.com</p>
+      <p>Phone: +91 98765 43210</p>
+      <p>Address: Gram Panchayat Office, Your Village, Your District</p>
+    </section>
+  </main>
+
+  <script>
+    const form = document.getElementById('certificateForm');
+    const notification = document.getElementById('notification');
+
+    form.addEventListener('submit', function(event) {
+      event.preventDefault();
+      const name = form.name.value.trim();
+      const certificateType = form.certificateType.value;
+
+      if (!name || !certificateType) {
+        alert('Please fill all required fields.');
+        return;
+      }
+
+      // Simple mock submission response
+      notification.style.display = 'block';
+      notification.textContent = `Application for ${certificateType} certificate submitted successfully by ${name}.`;
+      form.reset();
+    });
+  </script>
+</body>
+</html>
